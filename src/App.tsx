@@ -1,16 +1,20 @@
+import { useState } from "react";
 import "./App.css";
 import useSheetData from "./hooks/useSheetData";
 
 const App = () => {
-  const { data, loading, error } = useSheetData("5th");
+  const [semester, setSemester] = useState("5");
+  const [section, setSection] = useState("B");
+
+  const { data, loading, error } = useSheetData(semester, section);
 
   if (loading) {
     return <p>Loading....</p>;
   }
 
-  if (error) {
-    return <p>Error Loading....</p>;
-  }
+  // if (error) {
+  //   return <p>Error Loading....</p>;
+  // }
 
   return (
     <>

@@ -1,30 +1,37 @@
 import { useEffect, useState } from "react";
-import { parseCSV } from "../utils/csvParser";
-import { getCSVUrl, SEMESTERS_GIDS } from "../utils/constants";
+import { BASE_URL } from "../utils/constants";
 
-const useSheetData = (semester: string) => {
+const useSheetData = (semester: string, section: string) => {
   const [data, setData] = useState(null);
   const [sections, setSections] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
 
       try {
-        const url = getCSVUrl(SEMESTERS_GIDS[semester]);
-        const response = await fetch(url);
-        const text = await response.text();
-        parseCSV(text);
-        // console.log(text);
+        const url = BASE_URL;
+
+        const routineRes = await fetch(`${url}/cse/?semester=${semester}`);
+        const routineJSON = await routineRes.json();
+        setData(routineJSON);
+
+        const sectionRes = await fetch(`${url}/cse/sections/?semester=${semester}`);
+        const sectionJSON = await sectionRes.json();
+        // setSections(sectionJSON[semester]);
+        console.log(sectionJSON);
         setLoading(false);
-      } catch (error) {
-        setError(error);
+      } catch {
+        setError("Something error");
         setLoading(false);
       }
     };
     fetchData();
-  }, [semester]);
+  }, [semester, section]);
+
+  console.log(data);
+  console.log(section);
 
   return { data, loading, error, sections };
 };
