@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import useSheetData from "./hooks/useSheetData";
+import FilterBar from "./components/FilterBar";
 
 const App = () => {
   const [semester, setSemester] = useState("5");
@@ -18,6 +19,7 @@ const App = () => {
 
   return (
     <>
+      <FilterBar></FilterBar>
       <h1 className="text-3xl font-bold underline">check console log</h1>;
     </>
   );
