@@ -19,8 +19,8 @@ const useSheetData = (semester: string, section: string) => {
 
         const sectionRes = await fetch(`${url}/cse/sections/?semester=${semester}`);
         const sectionJSON = await sectionRes.json();
-        // setSections(sectionJSON[semester]);
-        console.log(sectionJSON);
+        setSections(sectionJSON[semester]);
+        // console.log(sectionJSON);
         setLoading(false);
       } catch {
         setError("Something error");

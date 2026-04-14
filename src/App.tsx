@@ -12,13 +12,12 @@ const App = () => {
     return <p>Loading....</p>;
   }
 
-  // if (error) {
-  //   return <p>Error Loading....</p>;
-  // }
+  if (error) {
+    return <p>Error Loading....{error}</p>;
+  }
 
   return (
     <>
-      <p>{data}</p>
       <h1 className="text-3xl font-bold underline">check console log</h1>;
     </>
   );
