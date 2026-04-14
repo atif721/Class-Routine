@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { parseCSV } from "../utils/csvParser";
+import { getCSVUrl, SEMESTERS_GIDS } from "../utils/constants";
 
-const useSheetData = () => {
+const useSheetData = (semester: string) => {
   const [data, setData] = useState(null);
+  const [sections, setSections] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState(null);
 
@@ -10,7 +12,8 @@ const useSheetData = () => {
     const fetchData = async () => {
 
       try {
-        const response = await fetch("https://docs.google.com/spreadsheets/d/1Sdmr60rcZeBCa2ofswUr9mxIreIj71W9HYM1RRhvfMM/export?format=csv&gid=1698922910");
+        const url = getCSVUrl(SEMESTERS_GIDS[semester]);
+        const response = await fetch(url);
         const text = await response.text();
         parseCSV(text);
         // console.log(text);
@@ -21,9 +24,9 @@ const useSheetData = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [semester]);
 
-  return { data, loading, error };
+  return { data, loading, error, sections };
 };
 
 export default useSheetData;

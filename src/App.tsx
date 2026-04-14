@@ -2,7 +2,7 @@ import "./App.css";
 import useSheetData from "./hooks/useSheetData";
 
 const App = () => {
-  const { data, loading, error } = useSheetData();
+  const { data, loading, error } = useSheetData("5th");
 
   if (loading) {
     return <p>Loading....</p>;
@@ -14,6 +14,7 @@ const App = () => {
 
   return (
     <>
+      <p>{data}</p>
       <h1 className="text-3xl font-bold underline">check console log</h1>;
     </>
   );
