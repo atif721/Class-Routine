@@ -20,7 +20,6 @@ const App = () => {
   return (
     <>
       <FilterBar></FilterBar>
-      <h1 className="text-3xl font-bold underline">check console log</h1>;
     </>
   );
 };
