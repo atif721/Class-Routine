@@ -4,10 +4,10 @@ import useSheetData from "./hooks/useSheetData";
 import FilterBar from "./components/FilterBar";
 
 const App = () => {
-  const [semester, setSemester] = useState("5");
-  const [section, setSection] = useState("B");
+  const [semester, setSemester] = useState("");
+  const [section, setSection] = useState("");
 
-  const { data, loading, error } = useSheetData(semester, section);
+  const { data, loading, error, sections = [] } = useSheetData(semester, section);
 
   if (loading) {
     return <p>Loading....</p>;
@@ -19,7 +19,12 @@ const App = () => {
 
   return (
     <>
-      <FilterBar></FilterBar>
+      <FilterBar
+        semester={semester}
+        section={section}
+        sections={sections}
+        onSemesterChange={setSemester}
+        onSectionChange={setSection}></FilterBar>
     </>
   );
 };
