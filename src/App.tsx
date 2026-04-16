@@ -19,7 +19,7 @@ const App = () => {
   }
 
   return (
-    <>
+    <div className="max-w-2xl mx-auto px-4">
       <FilterBar
         semester={semester}
         section={section}
@@ -28,7 +28,7 @@ const App = () => {
         onSectionChange={setSection}
       />
       <RoutineTable data={data} section={section} />
-    </>
+    </div>
   );
 };
 

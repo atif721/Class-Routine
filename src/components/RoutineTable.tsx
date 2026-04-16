@@ -12,8 +12,8 @@ const RoutineTable = ({ data, section }: RoutineTableProps) => {
   return (
     <div className="p-4">
       {days.map((day) => (
-        <div key={day} className="rounded-xl shadow p-4 mb-4">
-          <h2 className="font-bold text-lg mb-3">{day}</h2>
+        <div key={day} className="rounded-xl shadow-taupe-300 shadow-md p-4 mb-4">
+          <h2 className="font-bold text-lg">{day}</h2>
           {data &&
             data[day] &&
             Object.entries(data[day]).map(([time, classes]) => {

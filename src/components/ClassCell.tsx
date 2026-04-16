@@ -7,7 +7,7 @@ interface ClassCellProps {
 
 const ClassCell = ({ time, classes }: ClassCellProps) => {
   return (
-    <div className="flex gap-3 items-start">
+    <div className="flex gap-3 items-start mb-3">
       <p className="text-sm text-gray-500 w-20 shrink-0">{time}</p>
       <div className="flex-1 bg-blue-50 rounded-lg p-3">
         {classes.map((cls, i) => (
