@@ -1,4 +1,5 @@
 import type { WeekklySchedule } from "@/utils/types";
+import ClassCell from "./ClassCell";
 
 interface RoutineTableProps {
   data: WeekklySchedule | null;
@@ -7,29 +8,23 @@ interface RoutineTableProps {
 
 const RoutineTable = ({ data, section }: RoutineTableProps) => {
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
+
   return (
-    <div className="">
+    <div className="p-4">
       {days.map((day) => (
-        <div key={day}>
-          <h2>{day}</h2>
+        <div key={day} className="rounded-xl shadow p-4 mb-4">
+          <h2 className="font-bold text-lg mb-3">{day}</h2>
           {data &&
             data[day] &&
-            Object.entries(data[day]).map(([time, classes]) => (
-              <div key={time}>
-                <p>{time}</p>
-                {classes &&
-                  classes
-                    .filter((cls) => cls.section === section)
-                    .map((cls, i) => (
-                      <div key={i}>
-                        <p> {cls.course} </p>
-                        <p> {cls.teacher_name} </p>
-                        <p> {cls.section} </p>
-                        <p> {cls.room} </p>
-                      </div>
-                    ))}
-              </div>
-            ))}
+            Object.entries(data[day]).map(([time, classes]) => {
+              const filtered = classes?.filter((cls) => cls.section === section) ?? [];
+              if (filtered.length === 0) return null;
+              return (
+                <div key={time}>
+                  <ClassCell time={time} classes={filtered} />
+                </div>
+              );
+            })}
         </div>
       ))}
     </div>
