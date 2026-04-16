@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { BASE_URL } from "../utils/constants";
+import type { WeekklySchedule } from "@/utils/types";
 
 const useSheetData = (semester: string, section: string) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<WeekklySchedule | null>(null);
   const [sections, setSections] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
