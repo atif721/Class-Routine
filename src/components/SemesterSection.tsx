@@ -26,7 +26,7 @@ const SemesterSection = ({ semester, section, sections, onSemesterChange, onSect
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline">
-            Semester
+            Semester : {semester}
             <IoIosArrowDropdown />
           </Button>
         </DropdownMenuTrigger>
@@ -36,7 +36,7 @@ const SemesterSection = ({ semester, section, sections, onSemesterChange, onSect
             <DropdownMenuRadioGroup value={semester} onValueChange={onSemesterChange}>
               {SEMESTERS.map((sem) => (
                 <DropdownMenuRadioItem key={sem} value={sem}>
-                  {sem}th
+                  {sem}
                 </DropdownMenuRadioItem>
               ))}
             </DropdownMenuRadioGroup>
@@ -46,7 +46,8 @@ const SemesterSection = ({ semester, section, sections, onSemesterChange, onSect
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline">
-            Section <IoIosArrowDropdown />
+            Section : {section}
+            <IoIosArrowDropdown />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-32">
