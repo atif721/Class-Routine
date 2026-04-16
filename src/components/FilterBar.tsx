@@ -16,7 +16,8 @@ const FilterBar = ({ semester, section, sections, onSemesterChange, onSectionCha
         section={section}
         sections={sections}
         onSemesterChange={onSemesterChange}
-        onSectionChange={onSectionChange}></SemesterSection>
+        onSectionChange={onSectionChange}
+      />
     </>
   );
 };

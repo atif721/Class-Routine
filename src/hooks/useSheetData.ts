@@ -31,8 +31,8 @@ const useSheetData = (semester: string, section: string) => {
     fetchData();
   }, [semester, section]);
 
-  console.log(data);
-  console.log(section);
+  // console.log(data);
+  // console.log(section);
 
   return { data, loading, error, sections };
 };

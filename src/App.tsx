@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import useSheetData from "./hooks/useSheetData";
 import FilterBar from "./components/FilterBar";
+import RoutineTable from "./components/RoutineTable";
 
 const App = () => {
   const [semester, setSemester] = useState("");
@@ -24,7 +25,9 @@ const App = () => {
         section={section}
         sections={sections}
         onSemesterChange={setSemester}
-        onSectionChange={setSection}></FilterBar>
+        onSectionChange={setSection}
+      />
+      <RoutineTable data={data} section={section} />
     </>
   );
 };
