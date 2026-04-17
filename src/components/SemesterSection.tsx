@@ -18,19 +18,27 @@ interface Props {
   sections: string[];
   onSemesterChange: (val: string) => void;
   onSectionChange: (val: string) => void;
+  onSettingsSelect: (val: boolean) => void;
 }
 
-const SemesterSection = ({ semester, section, sections, onSemesterChange, onSectionChange }: Props) => {
+const SemesterSection = ({
+  semester,
+  section,
+  sections,
+  onSemesterChange,
+  onSectionChange,
+  onSettingsSelect,
+}: Props) => {
   return (
-    <div className="flex flex-row gap-5 pt-5 items-center justify-center">
+    <div className="flex flex-col gap-3 w-full max-w-md mx-auto my-auto">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline">
+          <Button variant="outline" className="w-70 mx-auto justify-between " size="lg">
             Semester : {semester}
             <IoIosArrowDropdown />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-32">
+        <DropdownMenuContent className="w-full max-w-[calc(100vw-32px)]">
           <DropdownMenuGroup>
             <DropdownMenuLabel>Semester</DropdownMenuLabel>
             <DropdownMenuRadioGroup value={semester} onValueChange={onSemesterChange}>
@@ -42,15 +50,15 @@ const SemesterSection = ({ semester, section, sections, onSemesterChange, onSect
             </DropdownMenuRadioGroup>
           </DropdownMenuGroup>
         </DropdownMenuContent>
-      </DropdownMenu>{" "}
+      </DropdownMenu>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline">
+          <Button variant="outline" className="w-70 mx-auto justify-between" size="lg">
             Section : {section}
             <IoIosArrowDropdown />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-32">
+        <DropdownMenuContent className="w-full max-w-[calc(100vw-32px)]">
           <DropdownMenuGroup>
             <DropdownMenuLabel>Section</DropdownMenuLabel>
             <DropdownMenuRadioGroup value={section} onValueChange={onSectionChange}>
@@ -63,6 +71,13 @@ const SemesterSection = ({ semester, section, sections, onSemesterChange, onSect
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
+      <Button
+        className="w-70 mx-auto"
+        onClick={() => {
+          onSettingsSelect(false);
+        }}>
+        Set
+      </Button>
     </div>
   );
 };

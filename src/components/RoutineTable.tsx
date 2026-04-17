@@ -4,11 +4,13 @@ import ClassCell from "./ClassCell";
 interface RoutineTableProps {
   data: WeekklySchedule | null;
   section: string;
+  semester: string;
 }
 
-const RoutineTable = ({ data, section }: RoutineTableProps) => {
+const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
 
+  if (!semester || !section) return null;
   return (
     <div className="p-4">
       {days.map((day) => (
