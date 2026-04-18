@@ -10,7 +10,7 @@ interface RoutineTableProps {
 }
 
 const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
-  const [dayDecider, setDayDecider] = useState<"today" | "weekly">("weekly");
+  const [dayDecider, setDayDecider] = useState<"today" | "weekly">("today");
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
   const today = new Date().toLocaleDateString("en-US", { weekday: "long" });
