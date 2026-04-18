@@ -15,7 +15,7 @@ const Header = ({ settings, loading, onSettingsSelect, darkMode, onDarkModeToggl
       <div className="flex flex-row justify-between items-center">
         <div className="mt-2">
           <h1 className="text-3xl font-bold dark:text-white">VUCSE Routine</h1>
-          <p className="text-sm text-muted-foreground">Spring 2026</p>
+          <p className="text-sm">Spring 2026</p>
         </div>
         <div className="flex pt-5 flex-row justify-center items-center gap-2">
           <button

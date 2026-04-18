@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import useSheetData from "./hooks/useSheetData";
 import FilterBar from "./components/FilterBar";
@@ -13,6 +13,12 @@ const App = () => {
   const [semester, setSemester] = useState(() => getStored("semester", ""));
   const [section, setSection] = useState(() => getStored("section", ""));
   const [settings, setSettings] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => getStored("darkMode", "light") === "dark");
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+    localStorage.setItem("darkMode", darkMode ? "dark" : "light");
+  }, [darkMode]);
 
   const handleSemesterChange = (val: string) => {
     setSemester(val);
@@ -39,8 +45,8 @@ const App = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto px-4">
-      <Header settings={settings} loading={loading} onSettingsSelect={setSettings} />
+    <div className="max-w-4xl mx-auto px-4">
+      <Header settings={settings} loading={loading} onSettingsSelect={setSettings} darkMode={darkMode} onDarkModeToggle={setDarkMode} />
       <FilterBar
         semester={semester}
         section={section}
