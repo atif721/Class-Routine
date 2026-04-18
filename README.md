@@ -88,4 +88,4 @@ MIT License — feel free to use and modify!
 
 ---
 
-> Built with ❤️ by a [atif721](https://github.com/atif721)
+> Built with ❤️ by a [@atif721](https://github.com/atif721)
