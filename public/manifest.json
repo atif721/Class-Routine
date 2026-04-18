@@ -32,7 +32,13 @@
   "screenshots": [
     {
       "src": "/screenshot-1.png",
-      "sizes": "1080x1920",
+      "sizes": "735x959",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshot-2.png",
+      "sizes": "1,651x962",
       "type": "image/png",
       "form_factor": "narrow"
     }
