@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# 🗓️ VU CSE Class Routine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **Progressive Web App (PWA)** for Varendra University CSE students to view their class routine anytime, anywhere — even from their home screen!
 
-Currently, two official plugins are available:
+🔗 **Live App:** [vucseroutine-fi.vercel.app](https://vucseroutine-fi.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 📅 **Weekly & Today View** — Switch between full week or just today's classes
+- 🎓 **Semester Selector** — Supports 1st through 9th semester
+- 👥 **Dynamic Section Filter** — Sections load automatically based on selected semester
+- 🌙 **Dark Mode Support** — Easy on the eyes at night
+- 🔄 **Floating Refresh Button** — Fetch latest data anytime without page reload
+- 📲 **PWA Support** — Install on your phone like a native app (Add to Home Screen)
+- 🏖️ **Holiday Detection** — Shows a friendly message on Friday & Saturday
+- ⚡ **Fast & Lightweight** — Built with Vite for blazing fast performance
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Technology | Purpose |
+|---|---|
+| React + TypeScript | Frontend framework |
+| Vite | Build tool |
+| Tailwind CSS | Styling |
+| shadcn/ui | UI Components |
+| vite-plugin-pwa | PWA support |
+| Vercel | Deployment |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📡API & 🤝Credits
+
+- **Routine API** — Built by [@rozari0](https://github.com/rozari0) at [vuroutine.vercel.app](https://vuroutine.vercel.app/docs#/)
+
+```
+Base URL: https://vuroutine.vercel.app
+
+GET /cse/?semester=5          → Get full weekly routine
+GET /cse/sections/?semester=5 → Get available sections
+```
+---
+
+## 📱 Install as App (PWA)
+
+**On Android (Chrome):**
+1. Open the [live app](https://vucseroutine-fi.vercel.app)
+2. Tap the three dots menu
+3. Tap **"Add to Home Screen"**
+4. Done! 🎉
+
+**On iPhone (Safari):**
+1. Open the [live app](https://vucseroutine-fi.vercel.app)
+2. Tap the **Share** button
+3. Tap **"Add to Home Screen"**
+4. Done! 🎉
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── RoutineTable.tsx    # Weekly/daily timetable grid
+│   ├── ClassCell.tsx       # Individual class card
+│   ├── FilterBar.tsx       # Semester & section selector
+│   ├── DailyWeekly.tsx     # View toggle button
+│   ├── FloatingRefresh.tsx # Floating refresh button
+│   └── Header.tsx          # App header
+├── hooks/
+│   └── useSheetData.ts     # Data fetching & state management
+├── utils/
+│   ├── constants.ts        # Base URL, semester list
+│   └── types.ts            # TypeScript interfaces
+├── App.tsx
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📄 License
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+MIT License — feel free to use and modify!
+
+---
+
+> Built with ❤️ by a [@atif721](https://github.com/atif721)
