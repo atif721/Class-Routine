@@ -10,7 +10,7 @@ interface RoutineTableProps {
 }
 
 const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
-  const [dayDecider, setDayDecider] = useState<"today" | "weekly">("today");
+  const [dayDecider, setDayDecider] = useState<"today" | "weekly">("weekly");
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
   const today = new Date().toLocaleDateString("en-US", { weekday: "long" });
@@ -24,8 +24,8 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
     return (
       <div className="p-4">
         <DailyWeekly dayDecider={dayDecider} onChangeDayDecider={setDayDecider} />
-        <div className="rounded-xl shadow-taupe-300 shadow-md p-4 mb-4">
-          <h2 className="text-center font-bold text-lg">No class today! Enjoy</h2>
+        <div className="rounded-xl shadow-md p-4 mb-4 bg-card dark:bg-card border border-border dark:border-border">
+          <h2 className="text-center font-bold text-lg text-foreground">No classes today! Enjoy</h2>
         </div>
       </div>
     );
@@ -39,19 +39,28 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
         </p>
       </div>
       {filteredDays.map((day) => (
-        <div key={day} className="rounded-xl shadow-taupe-300 shadow-md p-4 mb-4">
-          <h2 className="font-bold text-lg">{day}</h2>
+        <div key={day} className="rounded-xl shadow-md p-4 mb-4 bg-card dark:bg-[rgb(7,35,57)] border border-border dark:border-border">
+          <h2 className="font-bold text-2xl text-foreground">{day}</h2>
           {data &&
             data[day] &&
-            Object.entries(data[day]).map(([time, classes]) => {
-              const filtered = classes?.filter((cls) => cls.section === section) ?? [];
-              if (filtered.length === 0) return null;
-              return (
-                <div key={time}>
-                  <ClassCell time={time} classes={filtered} />
-                </div>
-              );
-            })}
+            (() => {
+              const displayedCourses = new Set<string>();
+              return Object.entries(data[day]).map(([time, classes]) => {
+                const filtered = classes?.filter((cls) => cls.section === section) ?? [];
+                if (filtered.length === 0) return null;
+
+                const firstClass = filtered[0];
+                const courseKey = `${firstClass.course}-${firstClass.section}`;
+                if (displayedCourses.has(courseKey)) return null;
+                displayedCourses.add(courseKey);
+
+                return (
+                  <div key={time}>
+                    <ClassCell time={time} classes={[firstClass]} />
+                  </div>
+                );
+              });
+            })()}
         </div>
       ))}
     </div>
