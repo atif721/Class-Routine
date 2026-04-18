@@ -44,37 +44,6 @@ GET /cse/sections/?semester=5 → Get available sections
 ```
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js
-- pnpm
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/vu-cse-routine.git
-
-# Navigate to project directory
-cd vu-cse-routine
-
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm run dev
-```
-
-### Build for Production
-
-```bash
-pnpm build
-pnpm preview
-```
-
----
-
 ## 📱 Install as App (PWA)
 
 **On Android (Chrome):**
