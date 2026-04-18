@@ -34,7 +34,7 @@ A **Progressive Web App (PWA)** for Varendra University CSE students to view the
 
 ## 📡API & 🤝Credits
 
-- **Routine API** — Built by [@rozari0](https://github.com/rozari0) at [vuroutine.vercel.app](https://vuroutine.vercel.app)
+- **Routine API** — Built by [@rozari0](https://github.com/rozari0) at [vuroutine.vercel.app](https://vuroutine.vercel.app/docs#/)
 
 ```
 Base URL: https://vuroutine.vercel.app
@@ -119,4 +119,4 @@ MIT License — feel free to use and modify!
 
 ---
 
-> Built with ❤️ by a [atif721]
+> Built with ❤️ by a [atif721](https://github.com/atif721)
