@@ -2,7 +2,7 @@
 
 A **Progressive Web App (PWA)** for Varendra University CSE students to view their class routine anytime, anywhere — even from their home screen!
 
-🔗 **Live App:** [vucseroutine-fi.vercel.app](https://vucseroutine-fi.vercel.app)
+🔗 **Live App:** [vucseroutine-ife.vercel.app](https://vucseroutine-ife.vercel.app)
 
 ---
 
@@ -47,13 +47,13 @@ GET /cse/sections/?semester=5 → Get available sections
 ## 📱 Install as App (PWA)
 
 **On Android (Chrome):**
-1. Open the [live app](https://vucseroutine-fi.vercel.app)
+1. Open the [live app](https://vucseroutine-ife.vercel.app)
 2. Tap the three dots menu
 3. Tap **"Add to Home Screen"**
 4. Done! 🎉
 
 **On iPhone (Safari):**
-1. Open the [live app](https://vucseroutine-fi.vercel.app)
+1. Open the [live app](https://vucseroutine-ife.vercel.app)
 2. Tap the **Share** button
 3. Tap **"Add to Home Screen"**
 4. Done! 🎉
