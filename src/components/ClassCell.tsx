@@ -16,7 +16,7 @@ const ClassCell = ({ time, classes }: ClassCellProps) => {
             <p className="text-xs text-gray-600">{cls.teacher_name}</p>
             <p className="text-xs text-blue-500">Room: {cls.room}</p>
           </div>
-        ))}
+        ))} 
       </div>
     </div>
   );
