@@ -2,7 +2,7 @@
   "name": "CSE Class Routine",
   "short_name": "CSERoutine",
   "description": "VU CSE Class Routine App",
-  "theme_color": "#ffffff",
+  "theme_color": "#0f172a",
   "background_color": "#ffffff",
   "display": "standalone",
   "start_url": "/",
