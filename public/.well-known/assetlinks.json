@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "app.vercel.vucseroutine_ife.twa",
+        "sha256_cert_fingerprints": ["1B:05:38:EA:BE:89:98:CE:35:4B:C0:4D:95:76:EB:84:40:20:69:08:A3:1F:2A:83:64:2F:CC:C5:14:8B:69:8E"]
+      }
+    }]
