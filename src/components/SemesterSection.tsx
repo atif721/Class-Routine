@@ -11,6 +11,7 @@ import {
 import { IoIosArrowDropdown } from "react-icons/io";
 import { Button } from "@/components/ui/button";
 import { SEMESTERS } from "@/utils/constants";
+
 interface Props {
   semester: string;
   section: string;

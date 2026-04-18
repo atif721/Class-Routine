@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { BASE_URL } from "../utils/constants";
 import type { WeekklySchedule } from "@/utils/types";
 
-const useSheetData = (semester: string) => {
+const useSheetData = (semester: string, section: string) => {
   const [data, setData] = useState<WeekklySchedule | null>(null);
   const [sections, setSections] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
