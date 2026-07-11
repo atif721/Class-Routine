@@ -31,7 +31,6 @@ const CoursePopup = ({ selectedCourse, onClose, section, semester }: CoursePopup
         <p>{selectedCourse.teacher_name}</p>
         <p>{selectedCourse.course}</p>
         <p>Room: {selectedCourse.room}</p>
-
         <pre className="mt-2">
           Semester:{semester} | Section: {section}
         </pre>
