@@ -7,16 +7,19 @@ interface ClassCellProps {
 }
 const ClassCell = ({ time, classes, onCourseClick }: ClassCellProps) => {
   return (
-    <div className="flex gap-3 items-start mb-3">
-      <p className="text-md font-semibold w-20 shrink-0">{time}</p>
+    <div className="mb-3 flex items-start gap-3">
+      <p className="text-md w-20 shrink-0 font-semibold">{time}</p>
       <div
-        className="flex-1 bg-blue-100 rounded-lg p-3 dark:bg-gray-900 cursor-pointer dark:hover:bg-gray-950 dark:hover:text-white rounded-2xl hover:px-3 transition-all duration-300"
-        onClick={() => onCourseClick(classes[0])}>
+        className="flex-1 cursor-pointer rounded-2xl rounded-lg bg-blue-100 p-3 transition-all duration-300 hover:bg-blue-200 hover:px-3 dark:bg-gray-900 dark:hover:bg-gray-950 dark:hover:text-white"
+        onClick={() => onCourseClick(classes[0])}
+      >
         {classes.map((cls, i) => (
           <div key={i} className="flex flex-col gap-2">
-            <p className="font-bold text-lg text-foreground">{cls.course}</p>
-            <p className="text-sm">{cls.teacher_name}</p>
-            <p className="text-md font-semibold text-blue-500">Room: {cls.room}</p>
+            <p className="text-foreground text-lg font-bold">{cls.course}</p>
+            <p className="text-md">{cls.teacher_name}</p>
+            <p className="text-md font-semibold text-blue-900">
+              Room: {cls.room}
+            </p>
           </div>
         ))}
       </div>

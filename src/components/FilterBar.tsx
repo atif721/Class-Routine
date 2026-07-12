@@ -21,7 +21,7 @@ const FilterBar = ({
   return (
     <>
       {settings && (
-        <div className="flex flex-col items-center gap-4 pt-4 min-h-125">
+        <div className="flex min-h-125 flex-col items-center gap-4 pt-4">
           <SemesterSection
             semester={semester}
             section={section}

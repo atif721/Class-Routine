@@ -8,7 +8,12 @@ interface CoursePopupProps {
   semester: string;
 }
 
-const CoursePopup = ({ selectedCourse, onClose, section, semester }: CoursePopupProps) => {
+const CoursePopup = ({
+  selectedCourse,
+  onClose,
+  section,
+  semester,
+}: CoursePopupProps) => {
   if (!selectedCourse) return null;
 
   const title = getCourseTitle(selectedCourse.course);
@@ -21,13 +26,22 @@ const CoursePopup = ({ selectedCourse, onClose, section, semester }: CoursePopup
       section: section,
       semester: semester,
     });
-    window.open(`https://atif721.github.io/cover-page-designer/?${params.toString()}`, "_blank");
+    window.open(
+      `https://atif721.github.io/cover-page-designer/?${params.toString()}`,
+      "_blank",
+    );
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={onClose}>
-      <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 w-80" onClick={(e) => e.stopPropagation()}>
-        <h2 className="text-xl font-bold mb-2">{title}</h2>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      onClick={onClose}
+    >
+      <div
+        className="w-80 rounded-2xl bg-white p-6 dark:bg-gray-900"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h2 className="mb-2 text-xl font-bold">{title}</h2>
         <p>{selectedCourse.teacher_name}</p>
         <p>{selectedCourse.course}</p>
         <p>Room: {selectedCourse.room}</p>
@@ -36,7 +50,8 @@ const CoursePopup = ({ selectedCourse, onClose, section, semester }: CoursePopup
         </pre>
         <button
           onClick={handleCoverPage}
-          className="mt-4 text-blue-500 dark:hover:bg-blue-950 dark:hover:text-white p-3 rounded-2xl cursor-pointer">
+          className="mt-4 cursor-pointer rounded-2xl bg-blue-300 p-3 transition-all duration-300 hover:bg-black hover:text-white dark:bg-gray-600 dark:hover:bg-gray-800 dark:hover:text-white"
+        >
           Cover Page
         </button>
       </div>
