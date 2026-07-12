@@ -8,13 +8,18 @@ interface SettingsProps {
   onSettingsSelect: (val: boolean) => void;
 }
 
-const SettingsnRefresh = ({ settings, loading, onSettingsSelect }: SettingsProps) => {
+const SettingsnRefresh = ({
+  settings,
+  loading,
+  onSettingsSelect,
+}: SettingsProps) => {
   return (
-    <div className="flex justify-center items-center gap-4">
-      {loading && settings ?
-        <FaSpinner className="animate-spin" />
-      : <></>}
-      <SlSettings className="text-2xl" onClick={() => onSettingsSelect(!settings)} />
+    <div className="flex items-center justify-center gap-4">
+      {loading && settings ? <FaSpinner className="animate-spin" /> : <></>}
+      <SlSettings
+        className="text-2xl"
+        onClick={() => onSettingsSelect(!settings)}
+      />
     </div>
   );
 };

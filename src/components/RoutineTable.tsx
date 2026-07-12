@@ -24,9 +24,14 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
   if (showHolidayMessage) {
     return (
       <div className="p-4">
-        <DailyWeekly dayDecider={dayDecider} onChangeDayDecider={setDayDecider} />
-        <div className="rounded-xl shadow-md p-4 mb-4 bg-card dark:bg-card border border-border dark:border-border">
-          <h2 className="text-center font-bold text-lg text-foreground">No classes today! Enjoy</h2>
+        <DailyWeekly
+          dayDecider={dayDecider}
+          onChangeDayDecider={setDayDecider}
+        />
+        <div className="bg-card dark:bg-card border-border dark:border-border mb-4 rounded-xl border p-4 shadow-md">
+          <h2 className="text-foreground text-center text-lg font-bold">
+            No classes today! Enjoy
+          </h2>
         </div>
       </div>
     );
@@ -34,8 +39,11 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
 
   return (
     <div className="p-4">
-      <div className="flex flex-row justify-around items-center">
-        <DailyWeekly dayDecider={dayDecider} onChangeDayDecider={setDayDecider} />
+      <div className="flex flex-row items-center justify-around">
+        <DailyWeekly
+          dayDecider={dayDecider}
+          onChangeDayDecider={setDayDecider}
+        />
         <p>
           Semester:{semester} | Section:{section}
         </p>
@@ -43,14 +51,16 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
       {filteredDays.map((day) => (
         <div
           key={day}
-          className="rounded-xl shadow-md p-4 mb-4 bg-card dark:bg-[rgb(7,35,57)] border border-border dark:border-border">
-          <h2 className="font-bold text-2xl text-foreground">{day}</h2>
+          className="bg-card border-border dark:border-border mb-4 rounded-xl border p-4 shadow-md dark:bg-[rgb(7,35,57)]"
+        >
+          <h2 className="text-foreground text-2xl font-bold">{day}</h2>
           {data &&
             data[day] &&
             (() => {
               const displayedCourses = new Set<string>();
               return Object.entries(data[day]).map(([time, classes]) => {
-                const filtered = classes?.filter((cls) => cls.section === section) ?? [];
+                const filtered =
+                  classes?.filter((cls) => cls.section === section) ?? [];
                 if (filtered.length === 0) return null;
                 const firstClass = filtered[0];
                 const courseKey = `${firstClass.course}-${firstClass.section}`;
@@ -58,7 +68,11 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
                 displayedCourses.add(courseKey);
                 return (
                   <div key={time}>
-                    <ClassCell time={time} classes={[firstClass]} onCourseClick={setSelectedCourse} />
+                    <ClassCell
+                      time={time}
+                      classes={[firstClass]}
+                      onCourseClick={setSelectedCourse}
+                    />
                   </div>
                 );
               });
@@ -69,7 +83,8 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
         selectedCourse={selectedCourse}
         onClose={() => setSelectedCourse(null)}
         section={section}
-        semester={semester}></CoursePopup>
+        semester={semester}
+      ></CoursePopup>
     </div>
   );
 };

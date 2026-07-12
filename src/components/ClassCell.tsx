@@ -17,7 +17,7 @@ const ClassCell = ({ time, classes, onCourseClick }: ClassCellProps) => {
           <div key={i} className="flex flex-col gap-2">
             <p className="text-foreground text-lg font-bold">{cls.course}</p>
             <p className="text-md">{cls.teacher_name}</p>
-            <p className="text-md font-semibold text-blue-900">
+            <p className="text-md font-semibold text-blue-900 dark:text-blue-400">
               Room: {cls.room}
             </p>
           </div>

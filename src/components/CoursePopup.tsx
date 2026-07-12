@@ -46,7 +46,7 @@ const CoursePopup = ({
         <p>{selectedCourse.course}</p>
         <p>Room: {selectedCourse.room}</p>
         <pre className="mt-2">
-          Semester:{semester} | Section: {section}
+          Semester:{semester} | Section:{section}
         </pre>
         <button
           onClick={handleCoverPage}

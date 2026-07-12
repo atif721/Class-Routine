@@ -29,10 +29,14 @@ const SemesterSection = ({
   onSettingsSelect,
 }: Props) => {
   return (
-    <div className="flex flex-col gap-3 w-full max-w-md mx-auto my-auto">
+    <div className="mx-auto my-auto flex w-full max-w-md flex-col gap-3">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="w-70 mx-auto justify-between " size="lg">
+          <Button
+            variant="outline"
+            className="mx-auto w-70 justify-between"
+            size="lg"
+          >
             Semester : {semester}
             <IoIosArrowDropdown />
           </Button>
@@ -40,7 +44,10 @@ const SemesterSection = ({
         <DropdownMenuContent className="w-full max-w-[calc(100vw-32px)]">
           <DropdownMenuGroup>
             <DropdownMenuLabel>Semester</DropdownMenuLabel>
-            <DropdownMenuRadioGroup value={semester} onValueChange={onSemesterChange}>
+            <DropdownMenuRadioGroup
+              value={semester}
+              onValueChange={onSemesterChange}
+            >
               {SEMESTERS.map((sem) => (
                 <DropdownMenuRadioItem key={sem} value={sem}>
                   {sem}
@@ -52,7 +59,11 @@ const SemesterSection = ({
       </DropdownMenu>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="w-70 mx-auto justify-between" size="lg">
+          <Button
+            variant="outline"
+            className="mx-auto w-70 justify-between"
+            size="lg"
+          >
             Section : {section}
             <IoIosArrowDropdown />
           </Button>
@@ -60,7 +71,10 @@ const SemesterSection = ({
         <DropdownMenuContent className="w-full max-w-[calc(100vw-32px)]">
           <DropdownMenuGroup>
             <DropdownMenuLabel>Section</DropdownMenuLabel>
-            <DropdownMenuRadioGroup value={section} onValueChange={onSectionChange}>
+            <DropdownMenuRadioGroup
+              value={section}
+              onValueChange={onSectionChange}
+            >
               {sections.map((sec) => (
                 <DropdownMenuRadioItem key={sec} value={sec}>
                   {sec}
@@ -71,10 +85,11 @@ const SemesterSection = ({
         </DropdownMenuContent>
       </DropdownMenu>
       <Button
-        className="w-70 mx-auto"
+        className="mx-auto w-70"
         onClick={() => {
           onSettingsSelect(false);
-        }}>
+        }}
+      >
         Set
       </Button>
     </div>
