@@ -41,10 +41,9 @@ const CoursePopup = ({
         className="w-80 rounded-2xl bg-white p-6 dark:bg-gray-900"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="mb-2 text-xl font-bold">{title}</h2>
-        <p>{selectedCourse.teacher_name}</p>
         <p>{selectedCourse.course}</p>
-        <p>Room: {selectedCourse.room}</p>
+        <h2 className="mb-2">{title}</h2>
+        <p>{selectedCourse.teacher_name}</p>
         <pre className="mt-2">
           Semester:{semester} | Section:{section}
         </pre>

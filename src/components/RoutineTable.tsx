@@ -38,7 +38,7 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
   }
 
   return (
-    <div className="p-4">
+    <div className="relative p-4">
       <div className="flex flex-row items-center justify-around">
         <DailyWeekly
           dayDecider={dayDecider}
@@ -47,6 +47,9 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
         <p>
           Semester:{semester} | Section:{section}
         </p>
+      </div>
+      <div className="absolute right-4 rounded-md bg-blue-200 px-2 py-1 text-[13px] whitespace-nowrap text-black shadow-md">
+        Tap on box for cover page
       </div>
       {filteredDays.map((day) => (
         <div
