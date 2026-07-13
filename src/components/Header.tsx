@@ -21,7 +21,7 @@ const Header = ({
       <div className="flex flex-row items-center justify-between">
         <div className="mt-2">
           <h1 className="text-3xl font-bold dark:text-white">VUCSE Routine</h1>
-          <p className="text-sm">Spring 2026</p>
+          <p className="text-sm">Summer 2026</p>
         </div>
         <div className="flex flex-row items-center justify-center gap-2 pt-5">
           <button
