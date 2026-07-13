@@ -20,7 +20,7 @@ const ClassCell = ({ time, classes, onCourseClick }: ClassCellProps) => {
             <p className="text-foreground text-lg font-bold">{cls.course}</p>
             <p className="text-lg font-bold">{getCourseTitle(cls.course)}</p>
             <p className="text-md">{cls.teacher_name}</p>
-            <p className="text-md font-semibold text-blue-900 dark:text-blue-400">
+            <p className="text-md w-fit rounded-md bg-blue-300 px-1 font-semibold text-blue-900 dark:bg-gray-700 dark:text-white">
               Room: {cls.room}
             </p>
           </div>
