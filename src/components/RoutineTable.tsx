@@ -54,7 +54,7 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
         />
         <div className="bg-card dark:bg-card border-border dark:border-border mb-4 rounded-xl border p-4 shadow-md">
           <h2 className="text-foreground text-center text-lg font-bold">
-            No classes! Enjoy
+            No classes {dayDecider === "today" ? "today" : "tomorrow"}! Enjoy
           </h2>
         </div>
       </div>
