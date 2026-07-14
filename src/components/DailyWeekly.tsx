@@ -1,8 +1,8 @@
 import { Button } from "./ui/button";
 
 interface DailyWeeklyProps {
-  dayDecider: "today" | "weekly";
-  onChangeDayDecider: (val: "today" | "weekly") => void;
+  dayDecider: "today" | "tomorrow" | "weekly";
+  onChangeDayDecider: (val: "today" | "tomorrow" | "weekly") => void;
 }
 
 const DailyWeekly = ({ dayDecider, onChangeDayDecider }: DailyWeeklyProps) => {
@@ -13,6 +13,12 @@ const DailyWeekly = ({ dayDecider, onChangeDayDecider }: DailyWeeklyProps) => {
         onClick={() => onChangeDayDecider("today")}
       >
         Today
+      </Button>
+      <Button
+        variant={dayDecider === "tomorrow" ? "default" : "outline"}
+        onClick={() => onChangeDayDecider("tomorrow")}
+      >
+        Tomorrow
       </Button>
       <Button
         variant={dayDecider === "weekly" ? "default" : "outline"}

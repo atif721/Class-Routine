@@ -1,7 +1,7 @@
 import type { ClassInfo, WeekklySchedule } from "@/utils/types";
 import ClassCell from "./ClassCell";
 import DailyWeekly from "./DailyWeekly";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import CoursePopup from "./CoursePopup";
 
 interface RoutineTableProps {
@@ -11,15 +11,39 @@ interface RoutineTableProps {
 }
 
 const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
-  const [dayDecider, setDayDecider] = useState<"today" | "weekly">("today");
-
+  const [dayDecider, setDayDecider] = useState<"today" | "tomorrow" | "weekly">(
+    "today",
+  );
   const [selectedCourse, setSelectedCourse] = useState<ClassInfo | null>(null);
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
-  const today = new Date().toLocaleDateString("en-US", { weekday: "long" });
-  const filteredDays = dayDecider === "today" ? [today] : days;
+
+  const { today, tomorrow } = useMemo(() => {
+    const now = new Date();
+    const tmrw = new Date(now);
+    tmrw.setDate(now.getDate() + 1);
+
+    return {
+      today: now.toLocaleDateString("en-US", { weekday: "long" }),
+      tomorrow: tmrw.toLocaleDateString("en-US", { weekday: "long" }),
+    };
+  }, []);
+
+  const filteredDays =
+    dayDecider === "today"
+      ? [today]
+      : dayDecider === "tomorrow"
+        ? [tomorrow]
+        : days;
+
   const isHoliday = today === "Friday" || today === "Saturday";
-  const showHolidayMessage = isHoliday && dayDecider === "today";
+  const isTomorrowHoliday = tomorrow === "Friday" || tomorrow === "Saturday";
+
+  const showHolidayMessage =
+    (dayDecider === "today" && isHoliday) ||
+    (dayDecider === "tomorrow" && isTomorrowHoliday);
+
+  console.log(tomorrow);
 
   if (showHolidayMessage) {
     return (
@@ -30,7 +54,7 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
         />
         <div className="bg-card dark:bg-card border-border dark:border-border mb-4 rounded-xl border p-4 shadow-md">
           <h2 className="text-foreground text-center text-lg font-bold">
-            No classes today! Enjoy
+            No classes! Enjoy
           </h2>
         </div>
       </div>
@@ -91,4 +115,5 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
     </div>
   );
 };
+
 export default RoutineTable;
