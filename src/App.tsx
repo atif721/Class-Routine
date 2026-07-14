@@ -13,7 +13,11 @@ const getStored = (key: string, fallback: string) =>
 const App = () => {
   const [semester, setSemester] = useState(() => getStored("semester", ""));
   const [section, setSection] = useState(() => getStored("section", ""));
-  const [settings, setSettings] = useState(true);
+  const [settings, setSettings] = useState(() => {
+    const storedSemester = getStored("semester", "");
+    const storedSection = getStored("section", "");
+    return !(storedSemester && storedSection);
+  });
   const [darkMode, setDarkMode] = useState(
     () => getStored("darkMode", "light") === "dark",
   );
