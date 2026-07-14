@@ -11,8 +11,12 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), VitePWA({
     registerType: 'autoUpdate',
     manifest: manifest as ManifestOptions,
+    workbox: {
+      skipWaiting: true,
+      clientsClaim: true,
+    },
   })],
-  base:process.env.VITE_BASE_PATH || "/Class-Routine",
+  base: process.env.VITE_BASE_PATH || "/Class-Routine",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
