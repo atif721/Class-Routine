@@ -17,7 +17,7 @@ const SettingsnRefresh = ({
     <div className="flex items-center justify-center gap-4">
       {loading && settings ? <FaSpinner className="animate-spin" /> : <></>}
       <SlSettings
-        className="text-2xl"
+        className="cursor-pointer text-2xl"
         onClick={() => onSettingsSelect(!settings)}
       />
     </div>
