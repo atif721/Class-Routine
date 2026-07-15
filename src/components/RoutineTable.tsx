@@ -3,6 +3,7 @@ import ClassCell from "./ClassCell";
 import DailyWeekly from "./DailyWeekly";
 import { useState, useMemo } from "react";
 import CoursePopup from "./CoursePopup";
+import { renderWithSuffix } from "@/utils/AddSuffix";
 
 interface RoutineTableProps {
   data: WeekklySchedule | null;
@@ -43,8 +44,6 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
     (dayDecider === "today" && isHoliday) ||
     (dayDecider === "tomorrow" && isTomorrowHoliday);
 
-  console.log(tomorrow);
-
   if (showHolidayMessage) {
     return (
       <div className="p-4">
@@ -63,14 +62,14 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
 
   return (
     <div className="relative p-4">
+      <p className="mx-auto w-fit text-xl font-bold">
+        {renderWithSuffix(Number(semester))} Semester || Section:{section}
+      </p>
       <div className="flex flex-row items-center justify-around">
         <DailyWeekly
           dayDecider={dayDecider}
           onChangeDayDecider={setDayDecider}
         />
-        <p>
-          Semester:{semester} | Section:{section}
-        </p>
       </div>
       <div className="absolute right-4 rounded-md bg-blue-200 px-2 py-1 text-[13px] whitespace-nowrap text-black shadow-md">
         Tap on box for cover page
