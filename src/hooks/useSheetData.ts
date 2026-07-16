@@ -8,6 +8,7 @@ const useSheetData = (semester: string) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
+  const [lastSync, setLastSync] = useState<Date | null>(null);
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -24,6 +25,7 @@ const useSheetData = (semester: string) => {
       const sectionJSON = await sectionRes.json();
       setSections(sectionJSON[semester] ?? []);
       setLoading(false);
+      setLastSync(new Date());
     } catch {
       setError("Something error");
       setLoading(false);
@@ -39,7 +41,7 @@ const useSheetData = (semester: string) => {
     fetchData();
   }, [fetchData, refreshTrigger]);
 
-  return { data, loading, error, sections, refresh };
+  return { data, loading, error, sections, refresh, lastSync };
 };
 
 export default useSheetData;
