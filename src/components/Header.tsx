@@ -1,5 +1,6 @@
 import SettingsnRefresh from "./SettingsnRefresh";
 import { IoMoonOutline, IoSunny } from "react-icons/io5";
+import { CiCalendarDate } from "react-icons/ci";
 
 interface SettingsProps {
   settings: boolean;
@@ -9,6 +10,15 @@ interface SettingsProps {
   onDarkModeToggle: (val: boolean) => void;
 }
 
+function formatNiceDate(date: Date): string {
+  return date.toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    weekday: "long",
+  });
+}
+
 const Header = ({
   settings,
   loading,
@@ -16,12 +26,19 @@ const Header = ({
   darkMode,
   onDarkModeToggle,
 }: SettingsProps) => {
+  const nowDate = formatNiceDate(new Date());
   return (
     <>
+      <h1 className="mt-2 text-center text-3xl font-bold dark:text-white">
+        VUCSE Routine
+      </h1>
       <div className="flex flex-row items-center justify-between">
         <div className="mt-2">
-          <h1 className="text-3xl font-bold dark:text-white">VUCSE Routine</h1>
           <p className="text-sm">Summer 2026</p>
+          <div className="text-md flex flex-row items-center font-bold">
+            <CiCalendarDate />
+            <p>{nowDate}</p>
+          </div>
         </div>
         <div className="flex flex-row items-center justify-center gap-2 pt-5">
           <button
