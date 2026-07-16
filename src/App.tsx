@@ -43,6 +43,7 @@ const App = () => {
     error,
     sections = [],
     refresh,
+    lastSync,
   } = useSheetData(semester);
 
   if (error) {
@@ -65,6 +66,7 @@ const App = () => {
         onSettingsSelect={setSettings}
         darkMode={darkMode}
         onDarkModeToggle={setDarkMode}
+        lastSync={lastSync}
       />
       <FilterBar
         semester={semester}

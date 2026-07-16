@@ -1,6 +1,18 @@
 import SettingsnRefresh from "./SettingsnRefresh";
 import { IoMoonOutline, IoSunny } from "react-icons/io5";
 import { CiCalendarDate } from "react-icons/ci";
+import {
+  formatNiceDate,
+  formatTime,
+  getRelativeTime,
+} from "@/utils/formattingDateTime";
+
+import { TooltipProvider } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface SettingsProps {
   settings: boolean;
@@ -8,15 +20,7 @@ interface SettingsProps {
   onSettingsSelect: (val: boolean) => void;
   darkMode: boolean;
   onDarkModeToggle: (val: boolean) => void;
-}
-
-function formatNiceDate(date: Date): string {
-  return date.toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    weekday: "long",
-  });
+  lastSync: Date | null;
 }
 
 const Header = ({
@@ -25,6 +29,7 @@ const Header = ({
   onSettingsSelect,
   darkMode,
   onDarkModeToggle,
+  lastSync,
 }: SettingsProps) => {
   const nowDate = formatNiceDate(new Date());
   return (
@@ -33,12 +38,26 @@ const Header = ({
         VUCSE Routine
       </h1>
       <div className="flex flex-row items-center justify-between">
-        <div className="mt-2">
-          <p className="text-sm">Summer 2026</p>
-          <div className="text-md flex flex-row items-center font-bold">
+        <div className="mt-2 font-bold">
+          <p className="text-md">Summer 2026</p>
+          <div className="text-md flex flex-row items-center">
             <CiCalendarDate />
             <p>{nowDate}</p>
           </div>
+          {lastSync && (
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <p className="cursor-default text-xs text-gray-500">
+                    Synced at {formatTime(lastSync)}
+                  </p>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{getRelativeTime(lastSync)}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
         </div>
         <div className="flex flex-row items-center justify-center gap-2 pt-5">
           <button
