@@ -6,6 +6,7 @@ import RoutineTable from "./components/RoutineTable";
 import FloatingRefresh from "./components/FloatingRefresh";
 import Header from "./components/Header";
 import LoadingSpinner from "./components/LoadingSpinner";
+import Footer from "./components/Footer";
 
 const getStored = (key: string, fallback: string) =>
   localStorage.getItem(key) ?? fallback;
@@ -83,6 +84,7 @@ const App = () => {
           <FloatingRefresh loading={loading} onRefresh={refresh} />
         </>
       )}
+      <Footer />
     </div>
   );
 };

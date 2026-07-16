@@ -48,7 +48,7 @@ const Header = ({
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <p className="cursor-default text-xs text-gray-500">
+                  <p className="cursor-default text-xs text-gray-500 dark:text-white">
                     Synced at {formatTime(lastSync)}
                   </p>
                 </TooltipTrigger>
