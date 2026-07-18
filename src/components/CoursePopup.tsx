@@ -23,6 +23,7 @@ const CoursePopup = ({
       courseCode: selectedCourse.course,
       courseTitle: title,
       teacher: selectedCourse.teacher_name,
+      designation: selectedCourse.designation,
       section: section,
       semester: semester,
     });
@@ -44,6 +45,7 @@ const CoursePopup = ({
         <p>{selectedCourse.course}</p>
         <h2 className="mb-2">{title}</h2>
         <p>{selectedCourse.teacher_name}</p>
+        <p>{selectedCourse.designation}</p>
         <pre className="mt-2">
           Semester:{semester} | Section:{section}
         </pre>

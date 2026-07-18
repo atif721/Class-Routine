@@ -1,6 +1,8 @@
 export interface ClassInfo {
   teacher_name: string,
+  designation: string,
   course: string,
+  course_name: string,
   section: string,
   room: string,
 }
