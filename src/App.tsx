@@ -45,7 +45,7 @@ const App = () => {
     sections = [],
     refresh,
     lastSync,
-  } = useSheetData(semester);
+  } = useSheetData(semester, section);
 
   if (error) {
     return <p>Error Loading....{error}</p>;
