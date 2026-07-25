@@ -81,19 +81,16 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
             data[day] &&
             (() => {
               const displayedCourses = new Set<string>();
-              return Object.entries(data[day]).map(([time, classes]) => {
-                const filtered =
-                  classes?.filter((cls) => cls.section === section) ?? [];
-                if (filtered.length === 0) return null;
-                const firstClass = filtered[0];
-                const courseKey = `${firstClass.course}-${firstClass.section}`;
+              return Object.entries(data[day]).map(([time, cls]) => {
+                if (!cls) return null;
+                const courseKey = `${cls.course}-${cls.section}`;
                 if (displayedCourses.has(courseKey)) return null;
                 displayedCourses.add(courseKey);
                 return (
                   <div key={time}>
                     <ClassCell
                       time={time}
-                      classes={[firstClass]}
+                      classes={[cls]}
                       onCourseClick={setSelectedCourse}
                     />
                   </div>
