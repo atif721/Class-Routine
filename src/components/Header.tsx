@@ -21,6 +21,7 @@ interface SettingsProps {
   darkMode: boolean;
   onDarkModeToggle: (val: boolean) => void;
   lastSync: Date | null;
+  isStale: boolean;
 }
 
 const Header = ({
@@ -30,6 +31,7 @@ const Header = ({
   darkMode,
   onDarkModeToggle,
   lastSync,
+  isStale,
 }: SettingsProps) => {
   const nowDate = formatNiceDate(new Date());
   return (
@@ -44,20 +46,29 @@ const Header = ({
             <CiCalendarDate />
             <p>{nowDate}</p>
           </div>
-          {lastSync && (
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <p className="cursor-default text-xs text-gray-500 dark:text-white">
-                    Synced at {formatTime(lastSync)}
-                  </p>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{getRelativeTime(lastSync)}</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          )}
+          <div>
+            {isStale ? (
+              <p className="mb-2 text-center text-xs text-yellow-600 dark:text-yellow-400">
+                Couldn't refresh — showing last synced data (
+                {lastSync?.toLocaleTimeString()})
+              </p>
+            ) : (
+              lastSync && (
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <p className="cursor-default text-xs text-gray-500 dark:text-white">
+                        Synced at {formatTime(lastSync)}
+                      </p>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{getRelativeTime(lastSync)}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              )
+            )}
+          </div>
         </div>
         <div className="flex flex-row items-center justify-center gap-2 pt-5">
           <button
