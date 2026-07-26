@@ -45,6 +45,7 @@ const App = () => {
     sections = [],
     refresh,
     lastSync,
+    isStale,
   } = useSheetData(semester, section);
 
   if (error) {
@@ -62,6 +63,7 @@ const App = () => {
   return (
     <div className="mx-auto max-w-4xl px-4">
       <Header
+        isStale={isStale}
         settings={settings}
         loading={loading}
         onSettingsSelect={setSettings}
