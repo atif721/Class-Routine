@@ -18,7 +18,7 @@ const ClassCell = ({ time, classes, onCourseClick }: ClassCellProps) => {
     <div className="mb-3 flex items-start gap-3">
       <p className="text-md flex w-20 shrink-0 flex-col font-semibold">
         <span>{time}</span>
-        <div className="mx-auto h-25 w-px bg-gray-500 dark:bg-white"></div>
+        <div className="mx-auto h-30 w-px bg-gray-500 sm:h-25 dark:bg-white"></div>
         <span>{classes[0]?.end_time}</span>
       </p>
       <TooltipProvider>
