@@ -25,7 +25,7 @@ const ClassCell = ({ time, classes, onCourseClick }: ClassCellProps) => {
         <Tooltip>
           <TooltipTrigger asChild>
             <div
-              className="w-full flex-1 cursor-pointer rounded-2xl rounded-lg bg-blue-100 p-4 transition-all duration-300 hover:bg-blue-200 hover:px-3 dark:bg-gray-900 dark:hover:bg-gray-950 dark:hover:text-white"
+              className="w-full flex-1 cursor-pointer rounded-2xl rounded-lg bg-blue-100 p-4 transition-all duration-300 hover:bg-blue-200 hover:px-3 dark:bg-gray-950 dark:hover:text-white dark:hover:transform-3d"
               onClick={() => onCourseClick(classes[0])}
             >
               {classes.map((cls, i) => (
@@ -37,7 +37,7 @@ const ClassCell = ({ time, classes, onCourseClick }: ClassCellProps) => {
                     {getCourseTitle(cls.course)}
                   </p>
                   <p className="text-md">{cls.teacher_name}</p>
-                  <p className="text-md w-fit rounded-md bg-blue-300 px-1 font-semibold text-blue-900 dark:bg-gray-700 dark:text-white">
+                  <p className="text-md w-fit rounded-md bg-blue-300 px-1 px-2 text-center font-semibold text-blue-900 dark:bg-cyan-700 dark:text-white">
                     Room: {cls.room}
                   </p>
                 </div>
