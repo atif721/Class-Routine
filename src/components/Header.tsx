@@ -1,12 +1,12 @@
 import SettingsnRefresh from "./SettingsnRefresh";
 import { IoMoonOutline, IoSunny } from "react-icons/io5";
 import { CiCalendarDate } from "react-icons/ci";
-import { IoMdMenu } from "react-icons/io";
-import { RiContactsLine } from "react-icons/ri";
-import { MdOutlineLocationOn } from "react-icons/md";
-import { IoMdInformationCircleOutline } from "react-icons/io";
-import { HiOutlineNewspaper } from "react-icons/hi";
-import { useState } from "react";
+// import { IoMdMenu } from "react-icons/io";
+// import { RiContactsLine } from "react-icons/ri";
+// import { MdOutlineLocationOn } from "react-icons/md";
+// import { IoMdInformationCircleOutline } from "react-icons/io";
+// import { HiOutlineNewspaper } from "react-icons/hi";
+// import { useState } from "react";
 
 import {
   formatNiceDate,
@@ -41,11 +41,11 @@ const Header = ({
   isStale,
 }: SettingsProps) => {
   const nowDate = formatNiceDate(new Date());
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  // const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  const closeMenu = () => setIsMenuOpen(false);
+  // const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <>
@@ -103,7 +103,7 @@ const Header = ({
             />
           )}
 
-          <div className="relative">
+          {/* <div className="relative">
             <button
               onClick={toggleMenu}
               className="hover:bg-muted rounded-md p-1 transition-colors"
@@ -144,7 +144,7 @@ const Header = ({
                 </div>
               </div>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="mt-3 h-px w-full bg-gray-200 dark:bg-gray-700"></div>

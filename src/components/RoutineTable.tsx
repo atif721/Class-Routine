@@ -74,7 +74,7 @@ const RoutineTable = ({ data, section, semester }: RoutineTableProps) => {
       {filteredDays.map((day) => (
         <div
           key={day}
-          className="bg-card border-border dark:border-border mb-4 rounded-xl border p-4 shadow-md dark:bg-[rgb(7,35,57)]"
+          className="bg-card border-border dark:border-border mb-4 rounded-xl border p-4 shadow-md dark:bg-[#111C2E]"
         >
           <h2 className="text-foreground text-2xl font-bold">{day}</h2>
           {data &&
