@@ -51,7 +51,7 @@ const CoursePopup = ({
         </pre>
         <button
           onClick={handleCoverPage}
-          className="mt-4 cursor-pointer rounded-2xl bg-blue-300 p-3 transition-all duration-300 hover:bg-black hover:text-white dark:bg-gray-600 dark:hover:bg-gray-800 dark:hover:text-white"
+          className="mt-4 cursor-pointer rounded-2xl bg-blue-300 p-3 transition-all duration-300 hover:scale-110 hover:bg-black hover:text-white dark:bg-cyan-700 dark:hover:text-white"
         >
           Cover Page
         </button>
